@@ -15,14 +15,11 @@ app.use('/', indexRouter)
 async function connectToDB() {
   await mongoose.connect(process.env.ATLAS_URI).then(console.log('DB connected'))
 
-  const cobra = await Shoe.create({
-    manufacturer: 'La Sportiva',
-    name: 'Cobra',
-    availableSizes: [38, 39, 43],
-    price: 135
-  })
-  await cobra.save()
-  console.log(cobra)
+  //const shoe = await Shoe.create({ name: 'Cobra', manufacturer: 'La Sportiva' }) 
+  //const deleteshoes = await Shoe.deleteMany().where('name').equals('Cobra')
+  //const findShoe = await Shoe.find().where('name').equals('Cobra')
+  //const shoeExists = await Shoe.exists().where('name').equals('python')
+  //console.log(shoeExists)
 
   app.listen(3000, () => {
     console.log('server listening on localhost:3000')
