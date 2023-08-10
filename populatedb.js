@@ -3,25 +3,25 @@ const mongoose = require('mongoose')
 const Shoe = require('./models/shoe')
 const Crashpad = require('./models/crashpads')
 
-let updated = 0
-
 const populateDB = async (shoesData, crashpadData) => {
   await mongoose.connect(process.env.ATLAS_URI).then(console.log('ready to upload inventory'))
 
+  const deleteShoes = await Shoe.deleteMany({})
+  console.log(`${deleteShoes.deletedCount} shoes removed from DB`)
+  const deleteCrashpads = await Crashpad.deleteMany({})
+  console.log(`${deleteCrashpads.deletedCount} crashpads removed from DB`)
+
   shoesData.forEach(async (shoe) => {
-    const shoeExists = await Shoe.exists().where('name').equals(shoe.name)
-
-    if (shoeExists === null) {
-      const addShoe = await Shoe.create(shoe)
-      console.log(`${addShoe.manufacturer} ${addShoe.name} added to db`)
-
-    } else {
-      const shoeInDB = await Shoe.findOne().where('name').equals(shoe.name).updateOne(shoe, {'upsert':true})
-      console.log(shoeInDB)
-    } 
+    await Shoe.create(shoe)
   })
+  console.log(`Data of ${shoesData.length} shoes uploaded to DB`)
 
-  return
+  crashpadData.forEach(async (crashpad) => {
+    await Crashpad.create(crashpad)
+  })
+  console.log(`Data of ${crashpadData.length} crashpads uploaded to DB`)
+
+  process.exit()
 }
 
 const shoesData = [
@@ -46,9 +46,40 @@ const shoesData = [
   {
     manufacturer: 'Scarpa',
     name: "Drago",
-    availableSizes: [35, 37, 38, 40, 42, 43],
+    availableSizes: [35, 37, 38],
     price: 200
   },
 ]
 
-populateDB(shoesData)
+const crashpadData = [
+  {
+    manufacturer: 'Metolius',
+    name: 'Magnum',
+    thickness: 10.2,
+    weight: 8.48,
+    price: 399
+  },
+  {
+    manufacturer: 'Mad Rock',
+    name: 'Duo',
+    thickness: 12.7,
+    weight: 7.71,
+    price: 299
+  },
+  {
+    manufacturer: 'Organic',
+    name: 'Full Pad',
+    thickness: 10.2,
+    weight: 5.44,
+    price: 199
+  },
+  {
+    manufacturer: 'Mad Rock',
+    name: 'R3',
+    thickness: 10.2,
+    weight: 8.16,
+    price: 269
+  },
+]
+
+populateDB(shoesData, crashpadData)
