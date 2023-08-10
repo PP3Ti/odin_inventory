@@ -6,6 +6,24 @@
   <title>Inventory</title>
 </head>
 <body>
-  <h1>Hi, this is a basic inventory app</h1>
+  <h1>Overview</h1>
+  <h4>Shoes</h4>
+  <ul>
+    <% shoes.forEach(item => { %>
+      <li><%= item.manufacturer %> <%= item.name %></li>
+   <% }) %>
+  </ul>
+  <h4>Crashpads</h4>
+  <ul>
+    <% crashpads.forEach(item => { %>
+      <li><%= item.manufacturer %> <%= item.name %></li>
+   <% }) %>
+  </ul>
+  <h4>Accessories</h4>
+  <ul>
+    <% accessories.forEach(item => { %>
+      <li><%= item.manufacturer %> <%= item.name %></li>
+   <% }) %>
+  </ul>
 </body>
 </html>

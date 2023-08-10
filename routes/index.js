@@ -1,11 +1,10 @@
 const express = require('express')
 const router = express.Router()
+const indexController = require('../controllers/indexController')
 
 router
   .route('/')
-  .get((req, res) => {
-    res.render('index.ejs')
-  })
+  .get(indexController.index)
   .post((req, res) => {
     res.send('hi post')
   })
