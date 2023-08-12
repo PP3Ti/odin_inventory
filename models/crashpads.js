@@ -5,7 +5,8 @@ const crashpadSchema = new mongoose.Schema({
   name: String,
   thickness: Number,
   weight: Number,
-  price: Number
+  price: Number,
+  count: Number
 })
 
 module.exports = mongoose.model('Crashpad', crashpadSchema)

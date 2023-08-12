@@ -6,7 +6,10 @@ const shoeSchema = new mongoose.Schema({
     type: String,
     required: true
     },
-  availableSizes: [Number],
+  availableSizes: 
+    [
+      { size:Number, count:Number }
+    ],
   price: Number
 })
 

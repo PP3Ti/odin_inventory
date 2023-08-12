@@ -7,23 +7,68 @@
 </head>
 <body>
   <h1>Overview</h1>
-  <h4>Shoes</h4>
-  <ul>
-    <% shoes.forEach(item => { %>
-      <li><%= item.manufacturer %> <%= item.name %></li>
-   <% }) %>
-  </ul>
-  <h4>Crashpads</h4>
-  <ul>
-    <% crashpads.forEach(item => { %>
-      <li><%= item.manufacturer %> <%= item.name %></li>
-   <% }) %>
-  </ul>
-  <h4>Accessories</h4>
-  <ul>
-    <% accessories.forEach(item => { %>
-      <li><%= item.manufacturer %> <%= item.name %></li>
-   <% }) %>
-  </ul>
+  <nav>
+    <a href='/shoes'> <h4>Shoes</h4> </a>
+    <a href='/crashpads'> <h4>Crashpads</h4> </a>
+    <a href='/accessories'> <h4>Accessories</h4> </a>
+  </nav>
+  <a href='/shoes'> <h2>Shoes</h2> </a>
+    <ul>
+      <% shoes.forEach(item => { %>
+        <li> <%= item.manufacturer %> <%= item.name %> </li>
+      <% }) %>
+    </ul>
+  <a href='/crashpads'> <h2>Crashpads</h2> </a>
+    <table>
+      <thead>
+        <th>manufacturer</th>
+        <th>name</th>
+        <th>price</th>
+        <th>count</th>
+        <th>value</th>
+      </thead>
+      <tbody>
+        <% crashpads.forEach(item => { %>
+          <tr>
+            <td> <%= item.manufacturer %> </td>
+            <td> <%= item.name %> </td>
+            <td> <%= item.price _%> € </td>
+            <td> <%= item.count %> </td>
+            <td> <%= Math.floor(item.count * item.price) _%> € </td>
+          </tr>
+        <% }) %>
+        <tr>
+          <td>
+            Total value: <%= crashpadSum _%> €
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  <a href='/accessories'> <h2>Accessories</h2> </a>
+    <table>
+      <thead>
+        <th>manufacturer</th>
+        <th>name</th>
+        <th>price</th>
+        <th>count</th>
+        <th>value</th>
+      </thead>
+      <tbody>
+        <% accessories.forEach(item => { %>
+          <tr>
+            <td> <%= item.manufacturer %> </td>
+            <td> <%= item.name %> </td>
+            <td> <%= item.price _%> € </td>
+            <td> <%= item.count %> </td>
+            <td> <%= Math.floor(item.count * item.price) _%> € </td>
+          </tr>
+        <% }) %>
+        <tr>
+          <td>
+            Total value: <%= accessorySum _%> €
+          </td>
+        </tr>
+      </tbody>
+    </table>
 </body>
 </html>
