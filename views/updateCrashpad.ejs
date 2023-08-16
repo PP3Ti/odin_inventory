@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>update crashpad data</title>
+</head>
+<body>
+  <h1> Update data of <%= pad.manufacturer %> <%= pad.name %> </h1>
+  <form action="/crashpads/update/<%= pad.id %>" method="post">
+    <label for="manufacturer">Manufacturer:</label>
+    <input type="text" name="manufacturer" value="<%=pad.manufacturer%>" required>
+    <br>
+    <label for="name">Name of product:</label>
+    <input type="text" name="name" value="<%=pad.name%>" required>
+    <br>
+    <label for="thickness">Thickness in cm:</label>
+    <input type="number" step="0.01" name="thickness" min="0" value="<%=pad.thickness%>">
+    <br>
+    <label for="weight">Weight in kg:</label>
+    <input type="number" step="0.01" name="weight" min="0" value="<%=pad.weight%>">
+    <br>
+    <label for="price">Price in eur:</label>
+    <input type="number" step="0.01" name="price" min="0" value="<%=pad.price%>">
+    <br>
+    <label for="count">Count in inventory:</label>
+    <input type="number" name="count" min="0" value="<%=pad.count%>">
+    <br>
+    <button type="submit">Update</button>
+  </form>
+  <form action="/crashpads/delete/<%= pad.id %>" method="post">
+    <button>delete</button>
+  </form>
+  <a href="/crashpads">
+    <button>back to crashpads</button>
+  </a>
+</body>
+</html>

@@ -8,6 +8,8 @@ const indexRouter = require('./routes/index')
 
 app.set('view engine', 'ejs')
 app.use(logger('dev'))
+app.use(express.urlencoded({ extended: true }))
+
 app.use('/', indexRouter)
 
 async function connectToDB() {

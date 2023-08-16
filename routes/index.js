@@ -2,6 +2,8 @@ const express = require('express')
 const router = express.Router()
 const indexController = require('../controllers/indexController')
 const crashpadController = require('../controllers/crashpadController')
+const shoeController = require('../controllers/shoeController')
+const accessoryController = require('../controllers/accessoryController')
 
 router
   .route('/')
@@ -13,9 +15,7 @@ router
 
 router
   .route('/shoes')
-  .get((req, res) => {
-    res.send('shoes')
-  })
+  .get(shoeController.viewShoes)
   .all((req, res) => {
     console.log(`invalid request from ${req.ip}`)
     res.redirect('/')
@@ -23,21 +23,42 @@ router
 
 router
   .route('/crashpads')
-  .get(crashpadController.viewPads)
+  .get(crashpadController.viewPads_get)
   .all((req, res) => {
     console.log(`invalid request from ${req.ip}`)
     res.redirect('/')
-})
+  })
+router
+  .route('/crashpads/add')
+  .get(crashpadController.addPad_get)
+  .post(crashpadController.addPad_post)
+  .all((req, res) => {
+    console.log(`invalid request from ${req.ip}`)
+    res.redirect('/crashpads')
+  })
+router
+  .route('/crashpads/update/:id')
+  .get(crashpadController.updatePad_get)
+  .post(crashpadController.updatePad_post)
+  .all((req, res) => {
+    console.log(`invalid request from ${req.ip}`)
+    res.redirect('/crashpads')
+  })
+router
+  .route('/crashpads/delete/:id')
+  .post(crashpadController.deletePad_post)
+  .all((req, res) => {
+    console.log(`invalid request from ${req.ip}`)
+    res.redirect('/crashpads')
+  })
 
 router
   .route('/accessories')
-  .get((req, res) => {
-    res.send('accessories')
-  })
+  .get(accessoryController.viewAccessories)
   .all((req, res) => {
     console.log(`invalid request from ${req.ip}`)
     res.redirect('/')
-})
+  })
 
 
 
