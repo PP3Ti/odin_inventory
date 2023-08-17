@@ -54,13 +54,34 @@ router
 
 router
   .route('/accessories')
-  .get(accessoryController.viewAccessories)
+  .get(accessoryController.viewAccessories_get)
   .all((req, res) => {
     console.log(`invalid request from ${req.ip}`)
     res.redirect('/')
   })
-
-
+router
+  .route('/accessories/add')
+  .get(accessoryController.addAccessory_get)
+  .post(accessoryController.addAccessory_post)
+  .all((req, res) => {
+    console.log(`invalid request from ${req.ip}`)
+    res.redirect('/')
+  })
+router
+  .route('/accessories/update/:id')
+  .get(accessoryController.updateAccessory_get)
+  .post(accessoryController.updateAccessory_post)
+  .all((req, res) => {
+    console.log(`invalid request from ${req.ip}`)
+    res.redirect('/')
+  })
+router
+  .route('/accessories/delete/:id')
+  .post(accessoryController.deleteAccessory_post)
+  .all((req, res) => {
+    console.log(`invalid request from ${req.ip}`)
+    res.redirect('/')
+  })
 
 router
   .route('/:any')

@@ -9,9 +9,16 @@
   <h1>All Accessories</h1>
   <ul>
     <% acc.forEach(acc => { %>
-      <li> <%= acc.manufacturer %> <%= acc.name %> </li>
+      <a href="/accessories/update/<%= acc.id %>">
+        <li> <%= acc.manufacturer %> <%= acc.name %> </li>
+      </a>
     <% }) %>
   </ul>
-  <a href="/"><button>back</button></a>
+  <a href="/accessories/add">
+    <button>add item</button>
+  </a>
+  <a href="/">
+    <button>back</button>
+  </a>
 </body>
 </html>

@@ -24,7 +24,7 @@
         <th>manufacturer</th>
         <th>name</th>
         <th>price</th>
-        <th>count</th>
+        <th>stock</th>
         <th>value</th>
       </thead>
       <tbody>
@@ -33,8 +33,8 @@
             <td> <%= item.manufacturer %> </td>
             <td> <%= item.name %> </td>
             <td> <%= item.price _%> € </td>
-            <td> <%= item.count %> </td>
-            <td> <%= Math.floor(item.count * item.price) _%> € </td>
+            <td> <%= item.stock %> </td>
+            <td> <%= Math.floor(item.stock * item.price) _%> € </td>
           </tr>
         <% }) %>
         <tr>
@@ -50,7 +50,7 @@
         <th>manufacturer</th>
         <th>name</th>
         <th>price</th>
-        <th>count</th>
+        <th>stock</th>
         <th>value</th>
       </thead>
       <tbody>
@@ -59,8 +59,8 @@
             <td> <%= item.manufacturer %> </td>
             <td> <%= item.name %> </td>
             <td> <%= item.price _%> € </td>
-            <td> <%= item.count %> </td>
-            <td> <%= Math.floor(item.count * item.price) _%> € </td>
+            <td> <%= item.stock %> </td>
+            <td> <%= Math.floor(item.stock * item.price) _%> € </td>
           </tr>
         <% }) %>
         <tr>

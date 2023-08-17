@@ -9,7 +9,9 @@
   <h1>All Crashpads</h1>
   <ul>
     <% pads.forEach(pad => { %>
-      <li> <a href="/crashpads/update/<%= pad.id %>"><%= pad.manufacturer %> <%= pad.name %> </a></li>
+      <a href="/crashpads/update/<%= pad.id %>">
+        <li> <%= pad.manufacturer %> <%= pad.name %></li>
+      </a>
     <% }) %>
   </ul>
   <a href="/">

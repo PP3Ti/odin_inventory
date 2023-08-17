@@ -3,22 +3,18 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Add crashpad to db</title>
+  <title>Add accessory</title>
 </head>
 <body>
-  <h1>Add a crashpad to the inventory</h1>
-  <form action="/crashpads/add" method="post" >
+  <form action="/accessories/add" method="post">
     <label for="manufacturer">Manufacturer:</label>
-    <input type="text" name="manufacturer" value="" required>
+    <input type="text" name="manufacturer" required>
     <br>
     <label for="name">Name of product:</label>
     <input type="text" name="name" required>
     <br>
-    <label for="thickness">Thickness in cm:</label>
-    <input type="number" step="0.01" name="thickness" min="0">
-    <br>
-    <label for="weight">Weight in kg:</label>
-    <input type="number" step="0.01" name="weight" min="0">
+    <label for="description">Description:</label>
+    <textarea name="description" rows="10" cols="25"></textarea>
     <br>
     <label for="price">Price in eur:</label>
     <input type="number" step="0.01" name="price" min="0">
@@ -28,7 +24,7 @@
     <br>
     <button type="submit">Add item to inventory</button>
   </form>
-  <a href="/crashpads">
+  <a href="/accessories">
     <button>back</button>
   </a>
 </body>

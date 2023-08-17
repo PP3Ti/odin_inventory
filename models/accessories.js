@@ -5,7 +5,7 @@ const accessorySchema = new mongoose.Schema({
   name: String,
   description: String,
   price: Number,
-  count: Number
+  stock: Number
 })
 
 module.exports = mongoose.model('Accessory', accessorySchema)

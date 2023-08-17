@@ -36,10 +36,10 @@ const shoesData = [
     name: "Cobra",
     availableSizes: 
       [
-        {size:38, count: 3},
-        {size:40, count: 2},
-        {size:42, count: 4},
-        {size:43, count: 1},
+        {size:38, stock: 3},
+        {size:40, stock: 2},
+        {size:42, stock: 4},
+        {size:43, stock: 1},
       ],
     price: 135
   },  
@@ -48,10 +48,10 @@ const shoesData = [
     name: "Python",
     availableSizes:      
       [
-        {size:37, count: 5},
-        {size:41, count: 2},
-        {size:42, count: 4},
-        {size:43, count: 1},
+        {size:37, stock: 5},
+        {size:41, stock: 2},
+        {size:42, stock: 4},
+        {size:43, stock: 1},
       ],
     price: 155
   },
@@ -60,10 +60,10 @@ const shoesData = [
     name: "Solution Comp",
     availableSizes: 
       [
-        {size:38, count: 12},
-        {size:40, count: 5},
-        {size:42, count: 7},
-        {size:43, count: 1},
+        {size:38, stock: 12},
+        {size:40, stock: 5},
+        {size:42, stock: 7},
+        {size:43, stock: 1},
       ],
     price: 170
   },
@@ -72,10 +72,10 @@ const shoesData = [
     name: "Drago",
     availableSizes:      
       [
-        {size:35, count: 3},
-        {size:36, count: 2},
-        {size:37, count: 4},
-        {size:43, count: 8},
+        {size:35, stock: 3},
+        {size:36, stock: 2},
+        {size:37, stock: 4},
+        {size:43, stock: 8},
       ],
     price: 200
   }
@@ -87,7 +87,7 @@ const crashpadData = [
     thickness: 10.2,
     weight: 8.48,
     price: 399,
-    count: 5
+    stock: 5
   },
   {
     manufacturer: 'Mad Rock',
@@ -95,7 +95,7 @@ const crashpadData = [
     thickness: 12.7,
     weight: 7.71,
     price: 299,
-    count: 2
+    stock: 2
   },
   {
     manufacturer: 'Organic',
@@ -103,7 +103,7 @@ const crashpadData = [
     thickness: 10.2,
     weight: 5.44,
     price: 199,
-    count: 23
+    stock: 23
   },
   {
     manufacturer: 'Mad Rock',
@@ -111,7 +111,7 @@ const crashpadData = [
     thickness: 10.2,
     weight: 8.16,
     price: 269,
-    count: 4
+    stock: 4
   }
 ]
 const accessoryData = [
@@ -120,21 +120,21 @@ const accessoryData = [
     name: 'Brush Set',
     description: 'Everything you need to get slopers and crimps ready for action.',
     price: 49,
-    count: 20
+    stock: 20
   },
   {
     manufacturer: 'Mammut',
     name: 'Crag Chalk Bag',
     description: 'Stripped back to the bare essentials, this bag means business on rock. A reinforced, angled opening make it super easy to access, while an adjustable hip belt ensures the perfect fit.',
     price: 27,
-    count: 13
+    stock: 13
   },
   {
     manufacturer: 'Black Diamond',
     name: '300g Loose White Gold Chalk',
     description: 'Our white chalk is specifically blended for climbing to keep sweat at bay, ensuring maximum grip no matter how hot or humid it gets.',
     price: 14.95,
-    count: 36
+    stock: 36
   }
 ]
 

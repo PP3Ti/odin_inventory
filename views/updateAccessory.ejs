@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Update accessory</title>
+</head>
+<body>
+  <form action="/accessories/update/<%= acc.id %>" method="post">
+    <label for="manufacturer">Manufacturer:</label>
+    <input type="text" name="manufacturer" value="<%= acc.manufacturer %>" required>
+    <br>
+    <label for="name">Name of product:</label>
+    <input type="text" name="name" value="<%= acc.name %>" required>
+    <br>
+    <label for="description">Description:</label>
+    <textarea name="description" rows="10" cols="25"><%= acc.description %></textarea>
+    <br>
+    <label for="price">Price in eur:</label>
+    <input type="number" step="0.01" name="price" min="0" value="<%= acc.price %>">
+    <br>
+    <label for="stock">stock in inventory:</label>
+    <input type="number" name="stock" min="0" value="<%= acc.stock %>">
+    <br>
+    <button type="submit">Update item</button>
+  </form>
+  <form action="/accessories/delete/<%= acc.id %>" method="post">
+    <button type="submit">delete item</button>
+  </form>
+  <a href="/accessories">
+    <button>back</button>
+  </a>
+</body>
+</html>
