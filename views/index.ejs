@@ -13,11 +13,34 @@
     <a href='/accessories'> <h4>Accessories</h4> </a>
   </nav>
   <a href='/shoes'> <h2>Shoes</h2> </a>
-    <ul>
-      <% shoes.forEach(item => { %>
-        <li> <%= item.manufacturer %> <%= item.name %> </li>
+  <table>
+    <thead>
+      <tr>
+        <th>Shoe</th>
+        <th>Manufacturer</th>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Stock</th>
+        <th>Value</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% shoes.forEach(shoe => { %>
+        <tr> 
+          <td> <a href="/shoes/update/<%= shoe.id %>"> <%= shoe.manufacturer %> <%= shoe.name %> </a> </td>
+          <td> <%= shoe.manufacturer %> </td>
+          <td> <%= shoe.name %> </td>
+          <td> <%= shoe.price %> </td>
+          <td> <%= shoe.fullStock %> </td>
+          <td> <%= Math.floor(shoe.fullStock * shoe.price) %> </td>
+        </tr>
       <% }) %>
-    </ul>
+      <tr>
+        <th>Total value</th>
+        <th> <%= shoesSum %> </th>
+      </tr>
+    </tbody>
+  </table>
   <a href='/crashpads'> <h2>Crashpads</h2> </a>
     <table>
       <thead>
@@ -38,9 +61,8 @@
           </tr>
         <% }) %>
         <tr>
-          <td>
-            Total value: <%= crashpadSum _%> €
-          </td>
+          <th>Total value:</th>
+          <th><%= crashpadSum _%> €</th>
         </tr>
       </tbody>
     </table>
@@ -64,9 +86,8 @@
           </tr>
         <% }) %>
         <tr>
-          <td>
-            Total value: <%= accessorySum _%> €
-          </td>
+          <th>Total value:</th>
+          <th><%= accessorySum _%> €</th>
         </tr>
       </tbody>
     </table>

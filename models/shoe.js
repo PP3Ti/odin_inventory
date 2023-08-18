@@ -8,7 +8,7 @@ const shoeSchema = new mongoose.Schema({
     },
   availableSizes: 
     [
-      { size:Number, stock:Number }
+      { size: Number, stock: Number }
     ],
   price: Number
 })

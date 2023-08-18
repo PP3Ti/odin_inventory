@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Update shoe data</title>
+</head>
+<body>
+  <h1>Update <%= shoe.manufacturer %> <%= shoe.name %> </h1>
+  <form action="/shoes/update/<%=shoe.id%>" method="post">
+    <label for="manufacturer">Manufacturer:</label>
+    <input type="text" name="manufacturer" value="<%= shoe.manufacturer %>" required>
+    <br>
+    <label for="name">Name:</label>
+    <input type="text" name="name" value="<%= shoe.name %>" required>
+    <br>
+    <fieldset>
+      <label for="availableSizes">Available sizes</label>
+      <br>
+      <% for(let i = 0; i < sizes.length; i++) { %>
+        <% if (shoe.availableSizes.some(e => e.size === sizes[i])) { %>
+          <label for="availableSizes[<%= i %>][size]"> <%= sizes[i] %> </label>
+          <input type="checkbox" name="availableSizes[<%= i %>][size]" value="<%= sizes[i] %>" checked>
+          <label for="stock">Stock:</label>
+          <input type="number" name="availableSizes[<%= i %>][stock]" min="0" 
+                 value="<%= shoe.availableSizes.find(available => available.size === sizes[i]).stock %>">
+          <br>
+        <% } else { %>
+          <label for="availableSizes[<%= i %>][size]"> <%= sizes[i] %> </label>
+          <input type="checkbox" name="availableSizes[<%= i %>][size]" value="<%= sizes[i] %>">
+          <label for="stock">Stock:</label>
+          <input type="number" name="availableSizes[<%= i %>][stock]" min="0">
+          <br>
+          <% } %>
+      <% } %>
+    </fieldset>
+    <label for="price">Price in eur:</label>
+    <input type="number" step="0.01" name="price" value="<%= shoe.price %>">
+    <br>
+    <button type="submit">update</button>
+  </form>
+  <form action="/shoes/delete/<%= shoe.id %>" method="post">
+    <button type="submit">delete item</button>
+  </form>
+  <a href="/shoes">
+    <button>back</button>
+  </a>
+</body>
+</html>

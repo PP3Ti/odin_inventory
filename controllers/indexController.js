@@ -18,6 +18,9 @@ exports.index = asyncHandler(async (req, res, next) => {
     shoe.availableSizes.forEach(element => {
       shoesSum += Math.floor(shoe.price * element.stock)
     })
+    shoe.fullStock = shoe.availableSizes
+    .map(size => size.stock)
+    .reduce((a, b) => a + b, 0)
   })
   crashpads.forEach(pad => {
     crashpadSum += Math.floor(pad.price * pad.stock)

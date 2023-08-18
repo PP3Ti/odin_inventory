@@ -15,7 +15,30 @@ router
 
 router
   .route('/shoes')
-  .get(shoeController.viewShoes)
+  .get(shoeController.viewShoes_get)
+  .all((req, res) => {
+    console.log(`invalid request from ${req.ip}`)
+    res.redirect('/')
+  })
+router
+  .route('/shoes/add')
+  .get(shoeController.addShoe_get)
+  .post(shoeController.addShoe_post)
+  .all((req, res) => {
+    console.log(`invalid request from ${req.ip}`)
+    res.redirect('/')
+  })
+router
+  .route('/shoes/update/:id')
+  .get(shoeController.updateShoe_get)
+  .post(shoeController.updateShoe_post)
+  .all((req, res) => {
+    console.log(`invalid request from ${req.ip}`)
+    res.redirect('/')
+  })
+router
+  .route('/shoes/delete/:id')
+  .post(shoeController.deleteShoe_post)
   .all((req, res) => {
     console.log(`invalid request from ${req.ip}`)
     res.redirect('/')

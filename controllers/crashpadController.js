@@ -7,11 +7,10 @@ exports.viewPads_get = asyncHandler(async (req, res, next) => {
 })
 
 exports.addPad_get = asyncHandler(async (req, res, next) => {
-  res.render('addPadForm')
+  res.render('addPad')
 })
 
 exports.addPad_post = asyncHandler(async (req, res, next) => {
-  
   const pad = await Crashpad.findOne().where('name').equals(req.body.name)
   if (pad === null) {
     const newPad = await Crashpad.create(req.body)
